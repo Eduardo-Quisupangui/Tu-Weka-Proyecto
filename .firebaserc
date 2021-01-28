@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "weka-bf606": {
+      "hosting": {
+        "app": [
+          "weka-bf606"
+        ]
+      }
+    }
+  }
+}
