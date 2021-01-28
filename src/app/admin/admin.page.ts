@@ -43,8 +43,20 @@ export class AdminPage implements OnInit {
   //export class AdminPage implements OnInit{
     lista:listado[]=[
       {
-        name:'home',
-        redirecTo:'/home'
+        name:'admin',
+        redirecTo:'/admin'
+      },
+      {
+        name:'reg-tienda',
+        redirecTo:'/reg-tienda'
+      },
+      {
+        name:'anuncios',
+        redirecTo:'/anuncios'
+      },
+      {
+        name:'login',
+        redirecTo:'/login'
       }
     ]
     menu:Observable<any>;

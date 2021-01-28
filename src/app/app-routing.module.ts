@@ -28,7 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)//,canActivate:[AuthGuard]
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -38,6 +39,17 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
+  {
+    path: 'reg-tienda',
+    loadChildren: () => import('./reg-tienda/reg-tienda.module').then( m => m.RegTiendaPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'anuncios',
+    loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule),
+    canActivate:[AuthGuard]
+  },
+
   
 ];
 
