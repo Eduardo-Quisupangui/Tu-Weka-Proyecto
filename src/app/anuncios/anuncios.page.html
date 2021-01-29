@@ -1,12 +1,226 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>ANUNCIOS</ion-title>
+    <!--
+    <ion-buttons>
+    <ion-button>
+      <ion-icon name="apps"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-buttons slot="end">
+    <ion-button class="bordered" fill="solid">
+      <ion-icon color="custom" name="notifications"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  -->
   </ion-toolbar>
+<!--
+  <ion-item lines="none">
+    <ion-avatar >
+    <img src="assets/logo-weka_auto.png">
+  </ion-avatar>
+  <ion-label>
+    <p>Hola</p>
+    <h3>Tu-Weka</h3>
+  </ion-label>
+  </ion-item>
+-->  
 </ion-header>
 
 <ion-content>
+<div class="slides ion-margin-bottom">
+  <ion-slides [options]="slidesOptions">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <div class="main">
+            <img src="assets/fra-carnes.jpg">
+          </div>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-card-title class="ion-margin-bottom">LOCAL DE CARNES</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
+          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
 
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <div class="main">
+            <img src="assets/fra-alitas.jpg">
+          </div>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-card-title class="ion-margin-bottom">LOCAL DE ALITAS</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
+          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <div class="main">
+            <img src="assets/fra-comida-rapida.jpg">
+          </div>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-card-title class="ion-margin-bottom">LOCAL COMIDA RAPIDA</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
+          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <div class="main">
+            <img src="assets/fra-pizza.jpg">
+          </div>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-card-title class="ion-margin-bottom">LOCAL PIZZA</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
+          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <div class="main">
+            <img src="assets/fra-hamburguesa.jpg">
+          </div>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-card-title class="ion-margin-bottom">LOCAL HAMBURGUESA</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
+          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <div class="main">
+            <img src="assets/fra-pizza2.jpg">
+          </div>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-card-title class="ion-margin-bottom">LOCAL PIZZA</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
+          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
+<!--//////////////////////////////////-->
+<ion-slides [options]="slidesOptions">
+  <ion-slide>
+    <ion-card>
+      <ion-card-header>
+        <div class="main">
+          <img src="assets/alitas.jpg">
+        </div>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <ion-card-title class="ion-margin-bottom">LAS MEJORES ALITAS</ion-card-title>
+        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <ion-card-header>
+        <div class="main">
+          <img src="assets/amburguesa.jpg">
+        </div>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <ion-card-title class="ion-margin-bottom">DELICIOSAS HAMBURGUESAS</ion-card-title>
+        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <ion-card-header>
+        <div class="main">
+          <img src="assets/cocteles.jpg">
+        </div>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <ion-card-title class="ion-margin-bottom">DELICIOSOS COCTELES</ion-card-title>
+        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <ion-card-header>
+        <div class="main">
+          <img src="assets/papas-fritas.jpg">
+        </div>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <ion-card-title class="ion-margin-bottom">LAS MEJORES SANCHIS</ion-card-title>
+        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <ion-card-header>
+        <div class="main">
+          <img src="assets/pizza.jpg">
+        </div>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <ion-card-title class="ion-margin-bottom">HENORMES PIZZAS</ion-card-title>
+        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <ion-card-header>
+        <div class="main">
+          <img src="assets/pollo-broster.jpg">
+        </div>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <ion-card-title class="ion-margin-bottom">EL MEJOR POLLO BROSTER</ion-card-title>
+        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+</ion-slides>
+  
+</div>
 </ion-content>
+
+
 <ion-footer color="primary">
   <h4>ll</h4>
   <ion-tabs>

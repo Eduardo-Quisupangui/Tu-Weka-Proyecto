@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class AnunciosPage implements OnInit {
 
   constructor() { }
+
+  slidesOptions ={
+    slidesPerView:1
+  }
+
   lista:listado[]=[
     {
       name:'admin',

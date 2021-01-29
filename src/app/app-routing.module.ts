@@ -28,8 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-    canActivate:[AuthGuard]
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -41,13 +40,11 @@ const routes: Routes = [
   },
   {
     path: 'reg-tienda',
-    loadChildren: () => import('./reg-tienda/reg-tienda.module').then( m => m.RegTiendaPageModule),
-    canActivate:[AuthGuard]
+    loadChildren: () => import('./reg-tienda/reg-tienda.module').then( m => m.RegTiendaPageModule),canActivate:[AuthGuard]
   },
   {
     path: 'anuncios',
-    loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule),
-    canActivate:[AuthGuard]
+    loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule),canActivate:[AuthGuard]
   },
 
   
