@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireAuthModule } from "@angular/fire/auth";//nuevo
 import { AngularFireModule } from "@angular/fire";//nuevo
 import { environment } from "src/environments/environment";//nuevo
+import { AngularFirestoreModule } from '@angular/fire/firestore';//nuevo
 //import { environment } from '../environments/environment.prod';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { environment } from "src/environments/environment";//nuevo
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),//nuevo
     AngularFireAuthModule,//nuevo
+    AngularFirestoreModule,//nuevo
 
   ],
   providers: [
