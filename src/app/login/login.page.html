@@ -7,23 +7,24 @@
 <ion-content>
 
 
-    <div class="container ion-text-center">
-      <img src="assets/logo-weka_auto.png">
-    </div>
+  <div class="container ion-text-center">
+    <img src="assets/logo-weka_auto.png">
+  </div>
   <br><br>
 
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Correo electronico</ion-label>
-      <ion-input type="text" #email required></ion-input>
+      <ion-input type="text" #email required clearInput></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" #password required></ion-input>
+      <ion-input type="password" #password required clearInput value=""></ion-input>
     </ion-item>
-    <ion-row>
+    <br><br>
+    <ion-row > 
       <ion-col>
-        <ion-button type="submit" (click)="onLogin(email, password)" expand="block">Iniciar sesión</ion-button>
+        <ion-button type="submit" (click)="onLogin(email, password)" expand="block" >Iniciar sesión</ion-button>
       </ion-col>
     </ion-row>
 
