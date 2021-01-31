@@ -5,6 +5,11 @@ import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 
+
+//servicio llamado
+import { PushService } from './services/push.service';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -16,6 +21,9 @@ export class AppComponent {
     //private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router:Router,//nueno splash
+
+      //Inyecto mi servicio el component
+      private pushService: PushService
   ) {
     this.initializeApp();
   }
@@ -25,6 +33,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       //this.splashScreen.hide();
       this.router.navigateByUrl('splash');//nuevo splash
+
+       //metodo pushh
+       this.pushService.configuracionInicial();
     });
   }
 }

@@ -14,6 +14,11 @@ import { environment } from "src/environments/environment";//nuevo
 import { AngularFirestoreModule } from '@angular/fire/firestore';//nuevo
 //import { environment } from '../environments/environment.prod';
 
+
+//componente de notificaciones
+
+import { OneSignal } from '@ionic-native/onesignal/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,6 +33,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';//nuevo
   ],
   providers: [
     StatusBar,
+    OneSignal,
     //SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
