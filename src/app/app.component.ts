@@ -36,6 +36,20 @@ export class AppComponent {
 
        //metodo pushh
        this.pushService.configuracionInicial();
+       this.checkDarkTheme();
     });
+  }
+  checkDarkTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    if ( prefersDark.matches ) {
+      document.body.classList.toggle( 'dark' );
+    }
+  }
+  darkMode: boolean = true;
+  cambio() {
+    // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle( 'dark' );
+    
   }
 }
