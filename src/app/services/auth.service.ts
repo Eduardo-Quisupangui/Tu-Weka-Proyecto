@@ -9,6 +9,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService {
 
   public user$: Observable<User>;
   
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public alertController: AlertController) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
@@ -54,7 +55,13 @@ export class AuthService {
      // await this.sendVerifcationEmail();
       return user;
     } catch (error) {
-      console.log('Error->', error);
+      const alert = await this.alertController.create({
+        header: 'ERROR',
+        message: 'Verifique correo y contraseña',
+        buttons: ['OK']
+      });
+
+      await alert.present();
     }
   }
 
@@ -64,7 +71,13 @@ export class AuthService {
       this.updateUserData(user);
       return user;
     } catch (error) {
-      console.log('Error->', error);
+      const alert = await this.alertController.create({
+        header: 'ERROR',
+        message: 'Verifique correo y contraseña',
+        buttons: ['OK']
+      });
+
+      await alert.present();
     }
   }
 //envio de email - revisar en el correo

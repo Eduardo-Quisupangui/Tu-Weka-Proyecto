@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private authSvc: AuthService, private router: Router) {}
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,26 +17,26 @@ export class LoginPage implements OnInit {
   async onLogin(email, password) {
     try {
       const user = await this.authSvc.login(email.value, password.value);
-      
+
       if (user) {
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
       }
-      
+
     } catch (error) {
       console.log('Error->', error);
     }
   }
- 
+
   async onLoginGoogle() {
     try {
       const user = await this.authSvc.loginGoogle();
-      
+
       if (user) {
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
       }
-      
+
     } catch (error) {
       console.log('Error->', error);
     }
