@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +10,7 @@ import { AuthService } from './../services/auth.service';
 })
 export class ForgotPasswordPage implements OnInit {
 
-  constructor(private authSvc: AuthService, private router: Router) {}
+  constructor(private authSvc: AuthService, private router: Router, public alertController: AlertController) {}
   ngOnInit(): void {
    // throw new Error('Method not implemented.');
   }
@@ -19,7 +20,13 @@ export class ForgotPasswordPage implements OnInit {
       await this.authSvc.resetPassword(email.value);
       this.router.navigate(['/login']);
     } catch (error) {
-      console.log('Error->', error);
+      const alert = await this.alertController.create({
+        header: 'ERROR',
+        message: 'Ingrese un correo valido',
+        buttons: ['OK']
+      });
+
+      await alert.present();
     }
   }
 
