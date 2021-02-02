@@ -3,6 +3,7 @@ import { ViewChild, ElementRef } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 //import { DataService } from '../../services/data.service';
+import { BaseService } from '../service/base.service';
 
 declare var google: any;
 @Component({
@@ -12,60 +13,69 @@ declare var google: any;
 })
 export class AdminPage implements OnInit {
   map: any;
-  @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;
+  @ViewChild('map', { read: ElementRef, static: false }) mapRef: ElementRef;
   infoWindows: any = [];
+/*
   markers: any = [
     {
-        title: "National Art Gallery",
-        latitude: "-17.824991",
-        longitude: "31.049295"
+      title: "National Art Gallery",
+      latitude: "-17.824991",
+      longitude: "31.049295"
     },
     {
-        title: "West End Hospital",
-        latitude: "-17.820987",
-        longitude: "31.039682"
+      title: "West End Hospital",
+      latitude: "-17.820987",
+      longitude: "31.039682"
     },
     {
-        title: "Dominican Convent School",
-        latitude: "-17.822647",
-        longitude: "31.052042"
+      title: "Dominican Convent School",
+      latitude: "-17.822647",
+      longitude: "31.052042"
     },
     {
-        title: "Chop Chop Brazilian Steakhouse",
-        latitude: "-17.819460",
-        longitude: "31.053844"
+      title: "Chop Chop Brazilian Steakhouse",
+      latitude: "-17.819460",
+      longitude: "31.053844"
     },
     {
-        title: "Canadian Embassy",
-        latitude: "-17.820972",
-        longitude: "31.043587"
+      title: "Canadian Embassy",
+      latitude: "-17.820972",
+      longitude: "31.043587"
     }
   ];
+*/
   //export class AdminPage implements OnInit{
-    lista:listado[]=[
-      {
-        name:'admin',
-        redirecTo:'/admin'
-      },
-      {
-        name:'reg-tienda',
-        redirecTo:'/reg-tienda'
-      },
-      {
-        name:'anuncios',
-        redirecTo:'/anuncios'
-      },
-      {
-        name:'login',
-        redirecTo:'/login'
-      }
-    ]
-    menu:Observable<any>;
-  constructor(private menu1:MenuController) { }
-  ngOnInit(): void {
-    
+  lista: listado[] = [
+    {
+      name: 'admin',
+      redirecTo: '/admin'
+    },
+    {
+      name: 'reg-tienda',
+      redirecTo: '/reg-tienda'
+    },
+    {
+      name: 'anuncios',
+      redirecTo: '/anuncios'
+    },
+    {
+      name: 'login',
+      redirecTo: '/login'
+    }
+  ]
+  menu: Observable<any>;
+  constructor(private menu1: MenuController, private base: BaseService) {
+    // this.DATOS=this.base.getDatos();
+    this.base.getDatos().subscribe(dato => {
+      console.log("DATO->", dato);
+    });
+
   }
-  openMenu(){
+
+  ngOnInit(): void {
+
+  }
+  openMenu() {
     this.menu1.toggle();
   }
 
@@ -81,7 +91,6 @@ export class AdminPage implements OnInit {
         latitude: marker.latitude,
         longitude: marker.longitude
       });
-
       mapMarker.setMap(this.map);
       this.addInfoWindowToMarker(mapMarker);
     }
@@ -89,11 +98,11 @@ export class AdminPage implements OnInit {
 
   addInfoWindowToMarker(marker) {
     let infoWindowContent = '<div id="content">' +
-                              '<h2 id="firstHeading" class"firstHeading">' + marker.title + '</h2>' +
-                              '<p>Latitude: ' + marker.latitude + '</p>' +
-                              '<p>Longitude: ' + marker.longitude + '</p>' +
-                              '<ion-button id="navigate">Navigate</ion-button>' +
-                            '</div>';
+      '<h2 id="firstHeading" class"firstHeading">' + marker.title + '</h2>' +
+      '<p>Latitude: ' + marker.latitude + '</p>' +
+      '<p>Longitude: ' + marker.longitude + '</p>' +
+      '<ion-button id="navigate">Navigate</ion-button>' +
+      '</div>';
 
     let infoWindow = new google.maps.InfoWindow({
       content: infoWindowContent
@@ -116,7 +125,7 @@ export class AdminPage implements OnInit {
   }
 
   closeAllInfoWindows() {
-    for(let window of this.infoWindows) {
+    for (let window of this.infoWindows) {
       window.close();
     }
   }
@@ -129,12 +138,16 @@ export class AdminPage implements OnInit {
       disableDefaultUI: true
     }
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-    this.addMarkersToMap(this.markers);
+    this.base.getDatos().subscribe(da=>{
+      this.addMarkersToMap(da);  
+    });
+
   }
 
 }
 
-interface listado{
-  name:string;
-  redirecTo:string;
+interface listado {
+  name: string;
+  redirecTo: string;
 }
+
