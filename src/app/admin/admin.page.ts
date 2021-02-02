@@ -47,10 +47,10 @@ export class AdminPage implements OnInit {
         name:'admin',
         redirecTo:'/admin'
       },
-      {
-        name:'reg-tienda',
-        redirecTo:'/reg-tienda'
-      },
+      //{
+        //name:'reg-tienda',
+        //redirecTo:'/reg-tienda'
+      //},
       {
         name:'anuncios',
         redirecTo:'/anuncios'
