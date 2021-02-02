@@ -16,6 +16,24 @@ import { PushService } from './services/push.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  lista: listado[]=[
+    {
+      name:'Mapa',
+      redirecTo:'/admin',
+      icon:'beer-outline'
+    },
+    {
+      name:'Anuncios',
+      redirecTo: '/anuncios',
+      icon:'boat-outline'
+    },
+    {
+      name:'Salir',
+      redirecTo:'/login',
+      icon:'bug-outline'
+    }
+  ]
   constructor(
     private platform: Platform,
     //private splashScreen: SplashScreen,
@@ -52,4 +70,9 @@ export class AppComponent {
     document.body.classList.toggle( 'dark' );
     
   }
+}
+interface listado{
+  name:string;
+  redirecTo:string;
+  icon:string;
 }

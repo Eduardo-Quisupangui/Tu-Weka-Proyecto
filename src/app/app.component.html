@@ -7,14 +7,32 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item><ion-item>
-          <ion-icon slot="start" name="moon"></ion-icon>
-          <ion-label>Modo Oscuro</ion-label>
-          <ion-toggle slot="end"
-                      (ionChange)="cambio()"></ion-toggle>
-        </ion-item></ion-item>
-        
+        <ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="moon"></ion-icon>
+            <ion-label>Modo Oscuro</ion-label>
+            <ion-toggle slot="end" (ionChange)="cambio()"></ion-toggle>
+          </ion-item>
+        </ion-item>
+
       </ion-list>
+      <br>
+      <ion-item routerLink="/admin" detail>
+        <ion-icon name="map-outline"></ion-icon>
+        <ion-label>MAPA</ion-label>
+      </ion-item>
+      <br>
+      <ion-item routerLink="/anuncios" detail>
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-label>ANUNCIOS</ion-label>
+      </ion-item>
+      <br>
+      <ion-item routerLink="/login" detail>
+        <ion-icon name="exit-outline"></ion-icon>
+        <ion-label>SALIR</ion-label>
+      </ion-item>
+
+
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
