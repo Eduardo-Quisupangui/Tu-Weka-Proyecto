@@ -28,6 +28,8 @@ export class RegTiendaPage implements OnInit {
     }
   ]
   ngOnInit() {
+    const getlocalctg=localStorage.getItem('variable1');
+    console.log("listo"+getlocalctg);
   }
 
 }
