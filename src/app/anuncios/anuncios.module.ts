@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AnunciosPageRoutingModule } from './anuncios-routing.module';
 
 import { AnunciosPage } from './anuncios.page';
+//import { ComponentesModule } from '../../componentes/componentes.module';
 
 @NgModule({
   imports: [

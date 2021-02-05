@@ -13,6 +13,7 @@ import { AngularFireModule } from "@angular/fire";//nuevo
 import { environment } from "src/environments/environment";//nuevo
 import { AngularFirestoreModule } from '@angular/fire/firestore';//nuevo
 //import { environment } from '../environments/environment.prod';
+import { HttpClientModule } from '@angular/common/http';
 
 
 //componente de notificaciones
@@ -29,6 +30,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     AngularFireModule.initializeApp(environment.firebaseConfig),//nuevo
     AngularFireAuthModule,//nuevo
     AngularFirestoreModule,//nuevo
+     HttpClientModule
 
   ],
   providers: [

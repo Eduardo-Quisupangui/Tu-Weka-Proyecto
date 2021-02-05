@@ -1,51 +1,74 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>ANUNCIOS</ion-title>
-    <!--
-    <ion-buttons>
-    <ion-button>
-      <ion-icon name="apps"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-
-  <ion-buttons slot="end">
-    <ion-button class="bordered" fill="solid">
-      <ion-icon color="custom" name="notifications"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  -->
   </ion-toolbar>
-<!--
-  <ion-item lines="none">
-    <ion-avatar >
-    <img src="assets/logo-weka_auto.png">
-  </ion-avatar>
-  <ion-label>
-    <p>Hola</p>
-    <h3>Tu-Weka</h3>
-  </ion-label>
-  </ion-item>
--->  
 </ion-header>
 
 <ion-content>
-<div class="slides ion-margin-bottom">
-  <ion-slides [options]="slidesOptions">
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <div class="main">
-            <img src="assets/fra-carnes.jpg">
-          </div>
-        </ion-card-header>
-        <ion-card-content class="ion-text-center">
-          <ion-card-title class="ion-margin-bottom">LOCAL DE CARNES</ion-card-title>
-          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
-          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
+  <!--//////////////////////////////////////////////////////////////
+  <ion-list>
+    <ion-item *ngFor="let cliente of clientes | async ">
+      <ion-label>
+        <ion-avatar slot="start">
+          <img [src]="cliente.image">
+        </ion-avatar>
 
+
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let c of usuario" (click)="opcionesSelecionadas(c)">
+              <ion-icon name="people-circle-outline"> </ion-icon>
+              <ion-label>{{cliente.name}}</ion-label>
+              <ion-checkbox color="secondary"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let c of usuario" (click)="opcionesSelecionadas(c)">
+              <ion-icon name="call-outline"> </ion-icon>
+              <ion-label>{{cliente.phone}}</ion-label>
+
+              <ion-checkbox color="secondary"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let c of usuario" (click)="opcionesSelecionadas(c)">
+              <ion-icon name="mail-outline"></ion-icon>
+              <ion-label>{{cliente.email}}</ion-label>
+              <ion-checkbox color="secondary"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+-->
+
+
+  <!--////////////////////////////////////////////////////////////////-->
+  <div class="slides ion-margin-bottom">
+    <ion-slides [options]="slidesOptions">
+      <ion-slide *ngFor="let cliente of clientes | async ">
+        <ion-card>
+          <ion-card-header>
+            <div class="main">
+              <img [src]="cliente.image">
+            </div>
+          </ion-card-header>
+          <ion-card-content *ngFor="let c of usuario" class="ion-text-center">
+            <ion-card-title class="ion-margin-bottom">{{cliente.name}}</ion-card-title>
+            <ion-card-subtitle class="ion-text-right">{{cliente.email}}</ion-card-subtitle>
+            <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <!--
     <ion-slide>
       <ion-card>
         <ion-card-header>
@@ -61,163 +84,48 @@
       </ion-card>
     </ion-slide>
 
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <div class="main">
-            <img src="assets/fra-comida-rapida.jpg">
-          </div>
-        </ion-card-header>
-        <ion-card-content class="ion-text-center">
-          <ion-card-title class="ion-margin-bottom">LOCAL COMIDA RAPIDA</ion-card-title>
-          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
-          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
+-->
+    </ion-slides>
 
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <div class="main">
-            <img src="assets/fra-pizza.jpg">
-          </div>
-        </ion-card-header>
-        <ion-card-content class="ion-text-center">
-          <ion-card-title class="ion-margin-bottom">LOCAL PIZZA</ion-card-title>
-          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
-          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
+    <!--//////////////////////////////////-->
+    <ion-slides [options]="slidesOptions">
 
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <div class="main">
-            <img src="assets/fra-hamburguesa.jpg">
-          </div>
-        </ion-card-header>
-        <ion-card-content class="ion-text-center">
-          <ion-card-title class="ion-margin-bottom">LOCAL HAMBURGUESA</ion-card-title>
-          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
-          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
 
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <div class="main">
-            <img src="assets/fra-pizza2.jpg">
-          </div>
-        </ion-card-header>
-        <ion-card-content class="ion-text-center">
-          <ion-card-title class="ion-margin-bottom">LOCAL PIZZA</ion-card-title>
-          <ion-card-subtitle class="ion-text-right">99/100 Comcurrido</ion-card-subtitle>
-          <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
+      <ion-slide *ngFor="let cliente of clientes | async ">
+        <ion-card>
+          <ion-card-header>
+            <div class="main">
+              <img [src]="cliente.image">
+            </div>
+          </ion-card-header>
+          <ion-card-content *ngFor="let c of usuario" class="ion-text-center">
+            <ion-card-title class="ion-margin-bottom">{{cliente.phone}}</ion-card-title>
+            <ion-card-subtitle class="ion-text-right">{{cliente.name}}</ion-card-subtitle>
+            <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
 
-  </ion-slides>
 
-<!--//////////////////////////////////-->
-<ion-slides [options]="slidesOptions">
-  <ion-slide>
-    <ion-card>
-      <ion-card-header>
-        <div class="main">
-          <img src="assets/alitas.jpg">
-        </div>
-      </ion-card-header>
-      <ion-card-content class="ion-text-center">
-        <ion-card-title class="ion-margin-bottom">LAS MEJORES ALITAS</ion-card-title>
-        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
-        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
 
-  <ion-slide>
-    <ion-card>
-      <ion-card-header>
-        <div class="main">
-          <img src="assets/amburguesa.jpg">
-        </div>
-      </ion-card-header>
-      <ion-card-content class="ion-text-center">
-        <ion-card-title class="ion-margin-bottom">DELICIOSAS HAMBURGUESAS</ion-card-title>
-        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
-        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-
-  <ion-slide>
-    <ion-card>
-      <ion-card-header>
-        <div class="main">
-          <img src="assets/cocteles.jpg">
-        </div>
-      </ion-card-header>
-      <ion-card-content class="ion-text-center">
-        <ion-card-title class="ion-margin-bottom">DELICIOSOS COCTELES</ion-card-title>
-        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
-        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-
-  <ion-slide>
-    <ion-card>
-      <ion-card-header>
-        <div class="main">
-          <img src="assets/papas-fritas.jpg">
-        </div>
-      </ion-card-header>
-      <ion-card-content class="ion-text-center">
-        <ion-card-title class="ion-margin-bottom">LAS MEJORES SANCHIS</ion-card-title>
-        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
-        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-
-  <ion-slide>
-    <ion-card>
-      <ion-card-header>
-        <div class="main">
-          <img src="assets/pizza.jpg">
-        </div>
-      </ion-card-header>
-      <ion-card-content class="ion-text-center">
-        <ion-card-title class="ion-margin-bottom">HENORMES PIZZAS</ion-card-title>
-        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
-        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-
-  <ion-slide>
-    <ion-card>
-      <ion-card-header>
-        <div class="main">
-          <img src="assets/pollo-broster.jpg">
-        </div>
-      </ion-card-header>
-      <ion-card-content class="ion-text-center">
-        <ion-card-title class="ion-margin-bottom">EL MEJOR POLLO BROSTER</ion-card-title>
-        <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
-        <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
-      </ion-card-content>
-    </ion-card>
-  </ion-slide>
-
-</ion-slides>
-  
-</div>
+<!--
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+            <div class="main">
+              <img src="assets/pollo-broster.jpg">
+            </div>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-title class="ion-margin-bottom">EL MEJOR POLLO BROSTER</ion-card-title>
+            <ion-card-subtitle class="ion-text-right">80/100 Delicioso</ion-card-subtitle>
+            <ion-progress-bar value="0.8" color="warning"></ion-progress-bar>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+-->
+    </ion-slides>
+  </div>
 </ion-content>
 
 
