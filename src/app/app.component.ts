@@ -70,6 +70,15 @@ export class AppComponent {
     document.body.classList.toggle( 'dark' );
     
   }
+
+  correo() {
+    // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const getcorreo=localStorage.getItem('correo');
+    return getcorreo;
+    //this.darkMode = !this.darkMode;
+    //document.body.classList.toggle( 'dark' );
+    
+  }
 }
 interface listado{
   name:string;

@@ -38,14 +38,18 @@ export class RegTiendaPage implements OnInit {
   async guardarTienda(nameTienda) {
     const getlocalctg=localStorage.getItem('variable1');
     const getlocalng=localStorage.getItem('variable2');
+    const getcorreobase=localStorage.getItem('correo');
     console.log("guardado"+getlocalctg);
     console.log("guardadolng"+getlocalng);
+    console.log("correobase"+getcorreobase);
     console.log("nombre de la tienda"+nameTienda.value);
     this.markers=
       {
+        correo: getcorreobase,
         title: nameTienda.value,
         latitude: getlocalctg,
-        longitude: getlocalng
+        longitude: getlocalng,
+
       }
     
     this.base.guardarData(this.markers);
