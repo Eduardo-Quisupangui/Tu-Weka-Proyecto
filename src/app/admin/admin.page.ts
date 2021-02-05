@@ -85,25 +85,28 @@ export class AdminPage implements OnInit {
     this.showMap();
   }
   addMarkersToMap(markers) {
-    const getcorreoif=localStorage.getItem('correo');
+    const getcorreoif = localStorage.getItem('correo');
     for (let marker of markers) {
-      if (marker.correo == getcorreoif ) {
+      //console.log("id:"+marker.id);
+      if (marker.correo == getcorreoif) {
         let position = new google.maps.LatLng(marker.latitude, marker.longitude);
         let mapMarker = new google.maps.Marker({
           position: position,
           title: marker.title,
           latitude: marker.latitude,
-          longitude: marker.longitude
+          longitude: marker.longitude,
+          idUsuario: marker.id
         });
         mapMarker.setMap(this.map);
         this.MarkerUsuario(mapMarker);
-      }else{
+      } else {
         let position = new google.maps.LatLng(marker.latitude, marker.longitude);
         let mapMarker = new google.maps.Marker({
           position: position,
           title: marker.title,
           latitude: marker.latitude,
-          longitude: marker.longitude
+          longitude: marker.longitude,
+          idUsuario: marker.id
         });
         mapMarker.setMap(this.map);
         this.addInfoWindowToMarker(mapMarker);
@@ -206,6 +209,7 @@ export class AdminPage implements OnInit {
       '<p>Latitude: ' + marker.latitude + '</p>' +
       '<p>Longitude: ' + marker.longitude + '</p>' +
       '<ion-button id="editar">Editar</ion-button>' +
+      '<ion-button id="borrar">Borrar</ion-button>' +
       '</div>';
 
     let infoWindow = new google.maps.InfoWindow({
@@ -217,10 +221,30 @@ export class AdminPage implements OnInit {
       infoWindow.open(this.map, marker);
 
       google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
-        document.getElementById('navigate').addEventListener('click', () => {
+        document.getElementById('editar').addEventListener('click', () => {
           console.log('navigate button clicked!');
           // code to navigate using google maps app
-          window.open('https://www.google.com/maps/dir/?api=1&destination=' + marker.latitude + ',' + marker.longitude);
+          //window.open('https://www.google.com/maps/dir/?api=1&destination=' + marker.latitude + ',' + marker.longitude);
+         
+          localStorage.setItem('tituloEdit',marker.title);
+          localStorage.removeItem('longedit');
+          localStorage.setItem('longedit',marker.longitude);
+          localStorage.removeItem('latedit');
+          localStorage.setItem('latedit',marker.latitude);
+          localStorage.removeItem('id');
+          localStorage.setItem('id',marker.idUsuario);
+          
+
+          this.router.navigate(['editar-tienda']);
+        });
+        document.getElementById('borrar').addEventListener('click', () => {
+          console.log('navigate button clicked!');
+          console.log('idmarker'+marker.idUsuario);
+          this.base.eliminarDato(marker.idUsuario);
+          // code to navigate using google maps app
+          //window.open('https://www.google.com/maps/dir/?api=1&destination=' + marker.latitude + ',' + marker.longitude);
+          // this.router.navigate(['editar-tienda']);
+
         });
       });
 

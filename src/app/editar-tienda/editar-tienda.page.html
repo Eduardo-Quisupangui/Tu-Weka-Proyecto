@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>EDITAR TIENDA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="full">
+    <ion-label position="floating">Nombre de la tienda</ion-label>
+    <ion-input type="text" #nameTienda required clearInput value="{{ nombreTienda() }}"></ion-input>
+  </ion-item>
+  <br><br>
+  <ion-row > 
+    <ion-col>
+      
+      <ion-button type="submit" (click)="editarTienda(nameTienda)"  expand="block" >Editar</ion-button>
+    
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer color="primary">
+  <h4>ll</h4>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button routerLink="/admin">
+        <ion-icon name="map-outline"></ion-icon>
+        <ion-label>Mapa</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button routerLink="/reg-tienda">
+        <ion-icon name="storefront-outline"></ion-icon>
+        <ion-label>Reg-tienda</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button routerLink="/anuncios">
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-label>Anuncios</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button routerLink="/login">
+        <ion-icon name="exit-outline"></ion-icon>
+        <ion-label>Salir</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

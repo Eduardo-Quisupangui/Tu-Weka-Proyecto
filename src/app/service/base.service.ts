@@ -17,5 +17,16 @@ export class BaseService {
     dato.id = key;
     this.base.database.ref('tiendas/' + dato.id).set(dato);
   }
+
+  public actualizarDatos(dato) {
+    //Actualizamos la fruta con el id que recibimos del objeto del parametro
+    this.base.database.ref('tiendas/' + dato.id).set(dato);
+  }
+
+  public eliminarDato(id) {
+    console.log("eliminaringreso"+id);
+    this.base.database.ref('tiendas/' + id).remove();
+    //Borrará la fruta con el id que le pasamos por parametro
+  }
   
 }

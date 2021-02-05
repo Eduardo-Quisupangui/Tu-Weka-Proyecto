@@ -45,7 +45,11 @@ const routes: Routes = [
   {
     path: 'anuncios',
     loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule)//,canActivate:[AuthGuard]
+  },  {
+    path: 'editar-tienda',
+    loadChildren: () => import('./editar-tienda/editar-tienda.module').then( m => m.EditarTiendaPageModule)
   },
+
 
   
 ];
