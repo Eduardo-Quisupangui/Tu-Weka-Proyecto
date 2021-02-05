@@ -44,7 +44,8 @@ export class AnunciosPage implements OnInit {
     {
       name: '',
       phone: '',
-      email: ''
+      descri:'',
+      valor: ''
     }
   ]
   opcionesSelecionadas(check) {
@@ -55,7 +56,8 @@ export class AnunciosPage implements OnInit {
     {
       name: '',
       phone: '',
-      email: ''
+      descri:'',
+      valor: ''
     }
   ]
   opcionesSelecionadas2(check) {
@@ -71,13 +73,14 @@ interface listado {
 interface usuarios {
   name: string;
   phone: string;
-  email: string;
+  descri:string;
+  valor: string;
 
 }
 
 interface usuarios2 {
   name: string;
   phone: string;
-  email: string;
-
+  descri:string;
+  valor: string;
 }

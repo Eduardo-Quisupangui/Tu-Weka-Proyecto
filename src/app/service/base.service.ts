@@ -31,11 +31,11 @@ export class BaseService {
   }
 
   public getClients() {
-    return this.http.get('https://raw.githubusercontent.com/Eduardo-Quisupangui/base/main/baelLema.json');
+    return this.http.get('https://raw.githubusercontent.com/Eduardo-Quisupangui/base-anuncios-principales/main/baseAnuncios1.json');
   }
 
   public getClients2() {
-    return this.http.get('https://raw.githubusercontent.com/Eduardo-Quisupangui/base/main/baelLema.json');
+    return this.http.get('https://raw.githubusercontent.com/Eduardo-Quisupangui/base-anuncios-principales/main/baseAnuncios2.json');
   }
 
   

@@ -63,8 +63,9 @@
           </ion-card-header>
           <ion-card-content *ngFor="let c of usuario" class="ion-text-center">
             <ion-card-title class="ion-margin-bottom">{{cliente.name}}</ion-card-title>
-            <ion-card-subtitle class="ion-text-right">{{cliente.email}}</ion-card-subtitle>
-            <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+            <ion-card-subtitle class="ion-text-right">{{cliente.phone}}</ion-card-subtitle>
+            <ion-card-subtitle class="ion-text-right">{{cliente.descri}}</ion-card-subtitle>
+            <ion-progress-bar value="{{cliente.valor}}" color="warning"></ion-progress-bar>
           </ion-card-content>
         </ion-card>
       </ion-slide>
@@ -89,19 +90,17 @@
 
     <!--//////////////////////////////////-->
     <ion-slides [options]="slidesOptions">
-
-
-      <ion-slide *ngFor="let cliente of clientes | async ">
+      <ion-slide *ngFor="let cliente2 of clientes2 | async ">
         <ion-card>
           <ion-card-header>
             <div class="main">
-              <img [src]="cliente.image">
+              <img [src]="cliente2.image">
             </div>
           </ion-card-header>
           <ion-card-content *ngFor="let c of usuario" class="ion-text-center">
-            <ion-card-title class="ion-margin-bottom">{{cliente.phone}}</ion-card-title>
-            <ion-card-subtitle class="ion-text-right">{{cliente.name}}</ion-card-subtitle>
-            <ion-progress-bar value="0.9" color="warning"></ion-progress-bar>
+            <ion-card-title class="ion-margin-bottom">{{cliente2.name}}</ion-card-title>
+            <ion-card-subtitle class="ion-text-right">{{cliente2.descri}}</ion-card-subtitle>
+            <ion-progress-bar value="{{cliente2.valor}}" color="warning"></ion-progress-bar>
           </ion-card-content>
         </ion-card>
       </ion-slide>
