@@ -49,25 +49,13 @@ ion-content{
     font-family: "principalA"!important;
   }
   
-  //SECUNDARIOS
-  //secundariasA
   
   @font-face{ 
-  font-family: anuncios4;
-  src: url("/../../assets/fonts/anuncios4.woff2");
-  }
-  ion-card-title  {
-  font-family: "anuncios4"!important;
-  
-  }
-  
-  @font-face{ 
-  font-family: crear2;
-  src: url("/../../assets/fonts/crear.woff2");
-  }
-  a{
-  font-family: "crear"!important;
-  }
-
+    font-family: secundarioC;
+    src: url("/../../assets/fonts/secundarioC.woff2");
+    }
+    ion-label{
+    font-family: "secundarioC"!important;
+    }
   
   
