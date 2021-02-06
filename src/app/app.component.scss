@@ -4,4 +4,32 @@
   }
 
   
-  
+  //DAVID MORALES
+//PRINCIPALES
+
+@font-face{ 
+  font-family: principalA;
+  src: url("/../../assets/fonts/principalA.woff2");
+}
+ion-title{
+  font-family: "principalA"!important;
+}
+
+//SECUNDARIOS
+//secundariasA
+
+@font-face{ 
+font-family: principalC;
+src: url("/../../assets/fonts/principalC.woff2");
+}
+ion-label{
+font-family: "principalC"!important;
+}
+
+@font-face{ 
+font-family: principalC;
+src: url("/../../assets/fonts/principalC.woff2");
+}
+a{
+font-family: "principalC"!important;
+}
