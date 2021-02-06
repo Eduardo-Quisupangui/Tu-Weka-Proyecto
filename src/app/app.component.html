@@ -8,14 +8,14 @@
     <ion-content>
       <ion-item >
         <ion-icon name="person-outline"></ion-icon>
-        <ion-label color="primary"> {{ correo() }}</ion-label>
+        <ion-label > {{ correo() }}</ion-label>
       </ion-item>
       <br>
       <ion-list>
         <ion-item>
           <ion-item>
             <ion-icon color="luna" slot="start" name="moon"></ion-icon>
-            <ion-label color="primary">Modo Oscuro</ion-label>
+            <ion-label >Modo Oscuro</ion-label>
             <ion-toggle slot="end" (ionChange)="cambio()"></ion-toggle>
           </ion-item>
         </ion-item>
@@ -24,17 +24,17 @@
       <br>
       <ion-item routerLink="/admin" detail>
         <ion-icon  name="map-outline"></ion-icon>
-        <ion-label color="primary" > MAPA</ion-label>
+        <ion-label  > MAPA</ion-label>
       </ion-item>
       <br>
       <ion-item routerLink="/anuncios" detail>
         <ion-icon name="star-outline"></ion-icon>
-        <ion-label color="primary"> ANUNCIOS</ion-label>
+        <ion-label > ANUNCIOS</ion-label>
       </ion-item>
       <br>
       <ion-item routerLink="/login" detail>
         <ion-icon  name="exit-outline"></ion-icon>
-        <ion-label  color="primary"> SALIR</ion-label>
+        <ion-label  > SALIR</ion-label>
       </ion-item>
     </ion-content>
   </ion-menu>
