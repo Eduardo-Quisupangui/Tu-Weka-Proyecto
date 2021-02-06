@@ -1,6 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>INICIAR SESION</ion-title>
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title  color="light" > INICIAR SESION</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,12 +13,12 @@
   <br><br>
 
   <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Correo electronico</ion-label>
+    <ion-item lines="full" >
+      <ion-label color="primary" position="floating" >CORREO ELECTRÓNICO </ion-label>
       <ion-input type="text" #email required clearInput></ion-input>
     </ion-item>
     <ion-item lines="full">
-      <ion-label position="floating">Contraseña</ion-label>
+      <ion-label color="primary" position="floating">CONTRASEÑA</ion-label>
       <ion-input type="password" #password required clearInput value=""></ion-input>
     </ion-item>
     <br><br>
@@ -36,9 +36,9 @@
     </ion-row>
   </form>
   <ion-row>
-    <ion-col>
-      <p class="ion-text-end">
-        <a routerLink="/forgot-password">¿Se te olvidó tu contraseña?</a>
+    <ion-col color="secondary">
+      <p color="secondary" class="ion-text-end">
+        <a color="secondary" routerLink="/forgot-password" >¿Se te olvidó tu contraseña?</a>
       </p>
     </ion-col>
   </ion-row>
@@ -46,7 +46,7 @@
   <ion-row>
     <ion-col>
       <p class="ion-text-end">
-        <a routerLink="/register">Crea una cuenta</a>
+        <a color="secondary" routerLink="/register">Crea una cuenta</a>
       </p>
     </ion-col>
   </ion-row>

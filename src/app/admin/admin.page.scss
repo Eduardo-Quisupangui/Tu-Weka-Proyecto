@@ -46,3 +46,33 @@
    ion-header{
     --background:rgb(121, 60, 60);
 }
+
+//DAVID MORALES
+//PRINCIPALES
+
+@font-face{ 
+  font-family: principalF;
+  src: url("/../../assets/fonts/principalF.woff2");
+}
+ion-title{
+  font-family: "principalF"!important;
+}
+
+//SECUNDARIOS
+//secundariasA
+
+@font-face{ 
+font-family: secundarioC;
+src: url("/../../assets/fonts/secundarioC.woff2");
+}
+ion-label{
+font-family: "secundarioC"!important;
+}
+
+@font-face{ 
+font-family: crear2;
+src: url("/../../assets/fonts/crear.woff2");
+}
+a{
+font-family: "crear"!important;
+}
