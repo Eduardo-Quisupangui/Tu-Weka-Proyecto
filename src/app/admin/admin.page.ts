@@ -228,9 +228,9 @@ export class AdminPage implements OnInit {
   /*//////////////////////////////////////////////
   */
   addInfoWindowToMarkerMove(marker) {
-    let infoWindowContent = '<div id="content">' +
-      '<h2 id="firstHeading" class"firstHeading">Registre su tienda</h2>' +
-      '<ion-button id="navigate">Registrar</ion-button>' +
+    let infoWindowContent = '<div  id="content" color="content">' +
+      '<h2  id="firstHeading"  class"firstHeading" color="luna">Registre su tienda</h2>' +
+      '<ion-button  id="navigate" color="luna">Registrar</ion-button>' +
       '</div>';
 
     let infoWindow = new google.maps.InfoWindow({
