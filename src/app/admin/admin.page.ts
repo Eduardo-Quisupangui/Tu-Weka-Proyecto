@@ -114,7 +114,7 @@ export class AdminPage implements OnInit {
     }
   }
   addMarkersMove() {
-    let position2 = new google.maps.LatLng(-17.824991, 31.049295);
+    let position2 = new google.maps.LatLng(-0.268901, -78.538880);
     let mapMarker2 = new google.maps.Marker({
       position: position2,
       draggable: true,
@@ -260,7 +260,7 @@ export class AdminPage implements OnInit {
   }
 
   showMap() {
-    const location = new google.maps.LatLng(-17.824858, 31.053028);
+    const location = new google.maps.LatLng(-0.268901, -78.538880);
     const options = {
       center: location,
       zoom: 15,
