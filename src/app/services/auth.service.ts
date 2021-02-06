@@ -16,10 +16,10 @@ import { AlertController } from '@ionic/angular';
 })
 //
 export class AuthService {
-  
+
 
   public user$: Observable<User>;
-  
+
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public alertController: AlertController) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -52,15 +52,21 @@ export class AuthService {
   async register(email: string, password: string): Promise<User> {
     try {
       const { user } = await this.afAuth.createUserWithEmailAndPassword(email, password);
-     // await this.sendVerifcationEmail();
-      return user;
-    } catch (error) {
-      const alert = await this.alertController.create({
-        header: 'ERROR',
-        message: 'Verifique correo y contraseña',
+      const alert1 = await this.alertController.create({
+        header: 'Correcto',
+        message: 'Su registro es valido',
         buttons: ['OK']
       });
+      await alert1.present();
+      // await this.sendVerifcationEmail();
+      return user;
+    } catch (error) {
 
+      const alert = await this.alertController.create({
+        header: 'ERROR',
+        message: 'Verifique campos vacio o ya existe este correo',
+        buttons: ['OK']
+      });
       await alert.present();
     }
   }
@@ -80,16 +86,16 @@ export class AuthService {
       await alert.present();
     }
   }
-//envio de email - revisar en el correo
-/*
-  async sendVerifcationEmail(): Promise<void> {
-    try {
-      return (await this.afAuth.currentUser).sendEmailVerification();
-    } catch (error) {
-      console.log('Error->', error);
+  //envio de email - revisar en el correo
+  /*
+    async sendVerifcationEmail(): Promise<void> {
+      try {
+        return (await this.afAuth.currentUser).sendEmailVerification();
+      } catch (error) {
+        console.log('Error->', error);
+      }
     }
-  }
- */
+   */
 
   isEmailVerified(user: User): boolean {
     return user.emailVerified === true ? true : true;//combio ultima false
@@ -116,5 +122,5 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
- 
+
 }

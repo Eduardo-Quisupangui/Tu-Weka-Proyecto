@@ -27,7 +27,7 @@ export class RegisterPage implements OnInit {
   }
   private redirectUser(isVerified: boolean): void {
     if (isVerified) {
-      this.router.navigate(['admin']);
+      this.router.navigate(['login']);
     } else {
       this.router.navigate(['verify-email']);
     }
