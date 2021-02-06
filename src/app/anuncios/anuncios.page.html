@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-title>ANUNCIOS</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title color="light" >ANUNCIOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -62,7 +62,7 @@
             </div>
           </ion-card-header>
           <ion-card-content *ngFor="let c of usuario" class="ion-text-center">
-            <ion-card-title class="ion-margin-bottom">{{cliente.name}}</ion-card-title>
+            <ion-card-title class="ion-margin-bottom" color="favorite">{{cliente.name}}</ion-card-title>
             <ion-card-subtitle class="ion-text-right">{{cliente.phone}}</ion-card-subtitle>
             <ion-card-subtitle class="ion-text-right">{{cliente.descri}}</ion-card-subtitle>
             <ion-progress-bar value="{{cliente.valor}}" color="warning"></ion-progress-bar>
@@ -98,7 +98,7 @@
             </div>
           </ion-card-header>
           <ion-card-content *ngFor="let c of usuario" class="ion-text-center">
-            <ion-card-title class="ion-margin-bottom">{{cliente2.name}}</ion-card-title>
+            <ion-card-title class="ion-margin-bottom" color="favorite" >{{cliente2.name}}</ion-card-title>
             <ion-card-subtitle class="ion-text-right">{{cliente2.descri}}</ion-card-subtitle>
             <ion-progress-bar value="{{cliente2.valor}}" color="warning"></ion-progress-bar>
           </ion-card-content>
@@ -133,23 +133,23 @@
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button routerLink="/admin">
-        <ion-icon name="map-outline"></ion-icon>
-        <ion-label>Mapa</ion-label>
+        <ion-icon color="primary" name="map-outline"></ion-icon>
+        <ion-label color="primary">Mapa</ion-label>
       </ion-tab-button>
 
       <ion-tab-button routerLink="/reg-tienda">
-        <ion-icon name="storefront-outline"></ion-icon>
-        <ion-label>Reg-tienda</ion-label>
+        <ion-icon  color="primary"name="storefront-outline"></ion-icon>
+        <ion-label color="primary">Reg-tienda</ion-label>
       </ion-tab-button>
 
       <ion-tab-button routerLink="/anuncios">
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-label>Anuncios</ion-label>
+        <ion-icon color="primary" name="star-outline"></ion-icon>
+        <ion-label color="primary">Anuncios</ion-label>
       </ion-tab-button>
 
       <ion-tab-button routerLink="/login">
-        <ion-icon name="exit-outline"></ion-icon>
-        <ion-label>Salir</ion-label>
+        <ion-icon color="primary" name="exit-outline"></ion-icon>
+        <ion-label color="primary">Salir</ion-label>
       </ion-tab-button>
 
     </ion-tab-bar>

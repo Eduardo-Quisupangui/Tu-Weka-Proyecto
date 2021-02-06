@@ -71,6 +71,8 @@ export class AppComponent {
     
   }
 
+  
+
   correo() {
     // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const getcorreo=localStorage.getItem('correo');

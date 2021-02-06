@@ -37,3 +37,37 @@ ion-content{
     }
     }
 }
+
+//DAVID MORALES
+//PRINCIPALES
+
+@font-face{ 
+    font-family: principalF;
+    src: url("/../../assets/fonts/principalF.woff2");
+  }
+  ion-title{
+    font-family: "principalF"!important;
+  }
+  
+  //SECUNDARIOS
+  //secundariasA
+  
+  @font-face{ 
+  font-family: anuncios4;
+  src: url("/../../assets/fonts/anuncios4.woff2");
+  }
+  ion-card-title  {
+  font-family: "anuncios4"!important;
+  
+  }
+  
+  @font-face{ 
+  font-family: crear2;
+  src: url("/../../assets/fonts/crear.woff2");
+  }
+  a{
+  font-family: "crear"!important;
+  }
+
+  
+  

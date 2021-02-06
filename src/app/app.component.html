@@ -2,20 +2,20 @@
   <ion-menu side="end" menuId="custom" contentId="main" class="my-custom-menu">
     <ion-header>
       <ion-toolbar color="secondary">
-        <ion-title>Configuración App</ion-title>
+        <ion-title>CONFIGURACIÓN APP</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-item >
         <ion-icon name="person-outline"></ion-icon>
-        <ion-label>{{ correo() }}</ion-label>
+        <ion-label color="primary"> {{ correo() }}</ion-label>
       </ion-item>
       <br>
       <ion-list>
         <ion-item>
           <ion-item>
-            <ion-icon slot="start" name="moon"></ion-icon>
-            <ion-label>Modo Oscuro</ion-label>
+            <ion-icon color="luna" slot="start" name="moon"></ion-icon>
+            <ion-label color="primary">Modo Oscuro</ion-label>
             <ion-toggle slot="end" (ionChange)="cambio()"></ion-toggle>
           </ion-item>
         </ion-item>
@@ -23,21 +23,19 @@
 
       <br>
       <ion-item routerLink="/admin" detail>
-        <ion-icon name="map-outline"></ion-icon>
-        <ion-label>MAPA</ion-label>
+        <ion-icon color="primary" name="map-outline"></ion-icon>
+        <ion-label> MAPA</ion-label>
       </ion-item>
       <br>
       <ion-item routerLink="/anuncios" detail>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-label>ANUNCIOS</ion-label>
+        <ion-icon color="primary" name="star-outline"></ion-icon>
+        <ion-label> ANUNCIOS</ion-label>
       </ion-item>
       <br>
       <ion-item routerLink="/login" detail>
-        <ion-icon name="exit-outline"></ion-icon>
-        <ion-label>SALIR</ion-label>
+        <ion-icon color="primary" name="exit-outline"></ion-icon>
+        <ion-label> SALIR</ion-label>
       </ion-item>
-
-
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
