@@ -5,8 +5,10 @@ import { bindCallback, Observable } from 'rxjs';
 //import { DataService } from '../../services/data.service';
 import { BaseService } from '../service/base.service';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 declare var google: any;
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
@@ -14,6 +16,9 @@ declare var google: any;
 })
 export class AdminPage implements OnInit {
   map: any;
+  markers2: any;
+  latclick:number=-0.268901 ;
+  longclick:number=-78.538880;
   inputNumer: number;
   @ViewChild('map', { read: ElementRef, static: false }) mapRef: ElementRef;
   infoWindows: any = [];
@@ -82,7 +87,7 @@ export class AdminPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.showMap();
+    this.showMap(this.addMarkersClick);
   }
   addMarkersToMap(markers) {
     const getcorreoif = localStorage.getItem('correo');
@@ -143,6 +148,85 @@ export class AdminPage implements OnInit {
     this.addInfoWindowToMarkerMove(mapMarker2);
 
   }
+
+
+
+  prueba() {
+
+    let position23 = new google.maps.LatLng(this.latclick, this.longclick);
+    let mapMarker23 = new google.maps.Marker({
+      position: position23,
+      draggable: true,
+      title: "HOLA INICIO",
+      latitude: 0,
+      longitude: 31.049295,
+
+    });
+    
+    this.map.addListener('click', function (event) {
+
+      //var poss = new google.maps.LatLng(this.getPosition().lat(), this.getPosition().lng());
+      //mapMarker23.setPosition(poss);
+      let latitud = mapMarker23.getPosition().lat();
+      console.log(mapMarker23.getPosition().lat());
+      localStorage.removeItem('var1');
+      localStorage.setItem('var1', '' + mapMarker23.getPosition().lat());
+
+      localStorage.removeItem('var2');
+      localStorage.setItem('var2', '' + mapMarker23.getPosition().lng());
+
+
+    })
+    var lt=parseInt(localStorage.getItem('var1'), 10);
+    var lg=parseInt(localStorage.getItem('var2'), 10);
+    this.latclick=lt;
+    this.longclick =lg;
+    mapMarker23.setMap(this.map);
+    this.addInfoWindowToMarkerMove(mapMarker23);
+
+  }
+
+
+  /*//////////////////////////////////////////////
+  */
+  funcSumar = function (valor1:number, valor2:number): number {
+  return valor1 + valor2;
+}
+  addMarkersClick = function(long:any, lat:any,map:any) {
+    console.log("entrooooo");
+    let position22 = new google.maps.LatLng(lat, long);
+    let mapMarker22 = new google.maps.Marker({
+      position: position22,
+      draggable: true,
+      title: "HOLA INICIO",
+      latitude: 0,
+      longitude: 31.049295,
+
+    });
+
+
+    mapMarker22.addListener('dragend', function (event) {
+
+      var poss = new google.maps.LatLng(this.getPosition().lat(), this.getPosition().lng());
+      mapMarker22.setPosition(poss);
+      let latitud = mapMarker22.getPosition().lat();
+      console.log(mapMarker22.getPosition().lat())
+      localStorage.removeItem('variable1');
+      localStorage.setItem('variable1', '' + mapMarker22.getPosition().lat());
+
+      localStorage.removeItem('variable2');
+      localStorage.setItem('variable2', '' + mapMarker22.getPosition().lng());
+
+
+    })
+    mapMarker22.setMap(map);
+    //this.addInfoWindowToMarkerMove(mapMarker2);
+
+  }
+
+
+  /*//////////////////////////////////////////////
+  */
   addInfoWindowToMarkerMove(marker) {
     let infoWindowContent = '<div id="content">' +
       '<h2 id="firstHeading" class"firstHeading">Registre su tienda</h2>' +
@@ -225,21 +309,21 @@ export class AdminPage implements OnInit {
           console.log('navigate button clicked!');
           // code to navigate using google maps app
           //window.open('https://www.google.com/maps/dir/?api=1&destination=' + marker.latitude + ',' + marker.longitude);
-         
-          localStorage.setItem('tituloEdit',marker.title);
+
+          localStorage.setItem('tituloEdit', marker.title);
           localStorage.removeItem('longedit');
-          localStorage.setItem('longedit',marker.longitude);
+          localStorage.setItem('longedit', marker.longitude);
           localStorage.removeItem('latedit');
-          localStorage.setItem('latedit',marker.latitude);
+          localStorage.setItem('latedit', marker.latitude);
           localStorage.removeItem('id');
-          localStorage.setItem('id',marker.idUsuario);
-          
+          localStorage.setItem('id', marker.idUsuario);
+
 
           this.router.navigate(['editar-tienda']);
         });
         document.getElementById('borrar').addEventListener('click', () => {
           console.log('navigate button clicked!');
-          console.log('idmarker'+marker.idUsuario);
+          console.log('idmarker' + marker.idUsuario);
           this.base.eliminarDato(marker.idUsuario);
           // code to navigate using google maps app
           //window.open('https://www.google.com/maps/dir/?api=1&destination=' + marker.latitude + ',' + marker.longitude);
@@ -259,7 +343,7 @@ export class AdminPage implements OnInit {
     }
   }
 
-  showMap() {
+  showMap(addMarkersClick) {
     const location = new google.maps.LatLng(-0.268901, -78.538880);
     const options = {
       center: location,
@@ -270,8 +354,60 @@ export class AdminPage implements OnInit {
     this.base.getDatos().subscribe(da => {
       this.addMarkersToMap(da);
       this.addMarkersMove();
+      this.prueba();
     });
+    
 
+    this.map.addListener('click', function (event) {
+      let position2 = new google.maps.LatLng(-0.268901, -78.538880);
+      let mapMarkerclick = new google.maps.Marker({
+        position: position2,
+        draggable: true,
+        title: "HOLA INICIO",
+        latitude: 0,
+        longitude: 31.049295,
+
+      });
+
+      // var poss = new google.maps.LatLng(this.getPosition().lat(), this.getPosition().lng());
+      let latclick = mapMarkerclick.getPosition().lat();
+      let longclick = mapMarkerclick.getPosition().lng();
+      localStorage.removeItem('marketlat');
+      localStorage.setItem('marketlat', latclick);
+
+      localStorage.removeItem('marketlong');
+      localStorage.setItem('marketlong', longclick);
+      console.log("click en el mapa");
+      addMarkersClick(longclick, latclick,this.map);
+      //console.log(this.funcSumar(4, 9));
+      //this.addMarkersClick(longclick, latclick);
+      /*
+      let position4 = new google.maps.LatLng(latclick, longclick);
+      let mapMarkerclick2 = new google.maps.Marker({
+        position: position4,
+        draggable: true,
+        title: "HOLA INICIO",
+        latitude: 0,
+        longitude: 31.049295,
+        */
+
+      //});
+      //localStorage.removeItem('market');
+      //localStorage.setItem('market', mapMarkerclick2);
+
+    })
+    //const latclick=localStorage.getItem('marketlat');
+    //const longclick =localStorage.getItem('marketlong');
+    //this.addMarkersClick(longclick, latclick);
+    //let frutas:any[]
+    //frutas =localStorage.getItem('market');
+    //getMarket.setMap(this.map);
+    //const mapaclick= new google.maps.event.addListener('click', () => {
+    //console.log("click en el mapa");
+    //});
+    // google.maps.Map.addEventListener('click',()=>{
+    //console.log("click en el mapa");
+    // });
   }
 
 }
