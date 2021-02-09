@@ -20,6 +20,7 @@ export class AuthService {
 
   public user$: Observable<User>;
   
+  
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public alertController: AlertController) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -80,6 +81,23 @@ export class AuthService {
       await alert.present();
     }
   }
+
+  // async regis(nomti: string, desti: string, preti: string): Promise<reg> {
+  //   try {
+  //     if(nomti!=undefined && desti!=undefined && preti!=undefined){
+  //       return true;
+
+  //     }
+  //   } catch (error) {
+  //     const alert = await this.alertController.create({
+  //       header: 'ERROR',
+  //       message: 'Verifique correo y contraseña',
+  //       buttons: ['OK']
+  //     });
+
+  //     await alert.present();
+  //   }
+  // }
 //envio de email - revisar en el correo
 /*
   async sendVerifcationEmail(): Promise<void> {

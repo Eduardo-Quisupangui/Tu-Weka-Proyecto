@@ -17,9 +17,10 @@ export class LoginPage implements OnInit {
   async onLogin(email, password) {
     try {
       const user = await this.authSvc.login(email.value, password.value);
-      localStorage.removeItem('correo');
-      localStorage.setItem('correo', email.value);
+     
       if (user) {
+        localStorage.removeItem('correo');
+        localStorage.setItem('correo', email.value);
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
       }
@@ -32,8 +33,11 @@ export class LoginPage implements OnInit {
   async onLoginGoogle() {
     try {
       const user = await this.authSvc.loginGoogle();
-
+      
       if (user) {
+        localStorage.removeItem('correo');
+        localStorage.setItem('correo', user.email);
+        console.log(user.email);
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
       }

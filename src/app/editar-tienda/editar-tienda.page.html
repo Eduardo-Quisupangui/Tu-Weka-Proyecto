@@ -9,11 +9,22 @@
     <ion-label position="floating">Nombre de la tienda</ion-label>
     <ion-input type="text" #nameTienda required clearInput value="{{ nombreTienda() }}"></ion-input>
   </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Nombre de la tienda</ion-label>
+    <ion-input type="text" #descripcionEdit required clearInput value="{{ descripcion() }}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Nombre de la tienda</ion-label>
+    <ion-input type="text" #precioEdit required clearInput value="{{ precio() }}"></ion-input>
+  </ion-item>
+
   <br><br>
   <ion-row > 
     <ion-col>
       
-      <ion-button type="submit" (click)="editarTienda(nameTienda)"  expand="block" >Editar</ion-button>
+      <ion-button type="submit" (click)="editarTienda(nameTienda,precioEdit,descripcionEdit)"  expand="block" >Editar</ion-button>
     
     </ion-col>
   </ion-row>

@@ -25,7 +25,7 @@ export class BaseService {
   }
 
   public eliminarDato(id) {
-    console.log("eliminaringreso"+id);
+    console.log("eliminar ingreso"+id);
     this.base.database.ref('tiendas/' + id).remove();
     //Borrará la fruta con el id que le pasamos por parametro
   }

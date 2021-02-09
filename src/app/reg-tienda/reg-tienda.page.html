@@ -9,10 +9,18 @@
     <ion-label color="secondary"position="floating">Nombre de la tienda</ion-label>
     <ion-input type="text" #nameTienda required clearInput value=""></ion-input>
   </ion-item>
+  <ion-item lines="full">
+    <ion-label color="secondary"position="floating">Descripcion</ion-label>
+    <ion-input type="text" #descripcion required clearInput value=""></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label color="secondary"position="floating">Precio</ion-label>
+    <ion-input type="text" #precio required clearInput value=""></ion-input>
+  </ion-item>
   <br><br>
   <ion-row > 
     <ion-col>
-      <ion-button type="submit" (click)="guardarTienda(nameTienda)"  expand="block" >Guardar</ion-button>
+      <ion-button type="submit" (click)="guardarTienda(nameTienda,precio,descripcion)"  expand="block" >Guardar</ion-button>
     </ion-col>
   </ion-row>
 </ion-content>

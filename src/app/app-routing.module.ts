@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'editar-tienda',
     loadChildren: () => import('./editar-tienda/editar-tienda.module').then( m => m.EditarTiendaPageModule)
   },
+  {
+    path: 'borrar-tienda',
+    loadChildren: () => import('./borrar-tienda/borrar-tienda.module').then( m => m.BorrarTiendaPageModule)
+  },
 
 
   
