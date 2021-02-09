@@ -79,7 +79,7 @@ export class RegTiendaPage implements OnInit {
       }else{
         const alert = await this.alertController.create({
           header: 'ERROR',
-          message: 'Verifique campos de registro',
+          message: 'Verifique campos de registro nuevo',
           buttons: ['OK']
         });
   
