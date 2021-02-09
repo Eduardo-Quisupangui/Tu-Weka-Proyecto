@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(private authSvc: AuthService, private router: Router) {}
+  constructor(private authSvc: AuthService, private router: Router, public alertController: AlertController) {}
 
   ngOnInit() {
   }
@@ -18,6 +19,13 @@ export class RegisterPage implements OnInit {
     try {
       const user = await this.authSvc.register(email.value, password.value);
       if (user) {
+        const alert = await this.alertController.create({
+          header: 'Correcto',
+          message: 'Su registro fue un exito',
+          buttons: ['OK']
+        });
+  
+        await alert.present();
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
       }
