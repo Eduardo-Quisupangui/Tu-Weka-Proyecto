@@ -73,13 +73,19 @@ export class RegTiendaPage implements OnInit {
       
       if(nameTienda.value!="" && descripcion.value!="" && precio.value!=""){
         console.log("nombre:"+nameTienda.value)
+        const alert = await this.alertController.create({
+          header: 'Correcto',
+          message: 'El registro es correcto',
+          buttons: ['OK']
+        });
+        await alert.present();
         this.base.guardarData(this.markers)
         this.router.navigate(['admin']);
 
       }else{
         const alert = await this.alertController.create({
           header: 'ERROR',
-          message: 'Verifique campos de registro nuevo',
+          message: 'Verifique campos de registro',
           buttons: ['OK']
         });
   

@@ -6,6 +6,8 @@ import { bindCallback, Observable } from 'rxjs';
 import { BaseService } from '../service/base.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
+
 
 declare var google: any;
 
@@ -72,7 +74,7 @@ export class AdminPage implements OnInit {
     }
   ]
   menu: Observable<any>;
-  constructor(private menu1: MenuController, private base: BaseService, private router: Router) {
+  constructor(private menu1: MenuController, private base: BaseService, private router: Router, public alertController: AlertController) {
     // this.DATOS=this.base.getDatos();
     this.base.getDatos().subscribe(dato => {
       console.log("DATO->", dato);
@@ -295,12 +297,27 @@ autoCompletar(marcador,consultaGoogle)
 
           this.router.navigate(['editar-tienda']);
         });
-        document.getElementById('borrar').addEventListener('click', () => {
+         document.getElementById('borrar').addEventListener('click',async () => {
           console.log('no boradooooooooo');
           console.log('idmarker' + marker.idUsuario);
           localStorage.removeItem('idborrar');
           localStorage.setItem('idborrar', marker.idUsuario);
-          this.router.navigate(['borrar-tienda']);
+
+          if(marker.idUsuario!=""){
+        
+           
+             const alert = await this.alertController.create({
+              header: 'Correcto',
+              message: 'Borrado exitoso',
+              buttons: ['OK']
+            });
+           
+            await alert.present();
+            this.base.eliminarDato(marker.idUsuario);
+            this.router.navigate(['anuncios']);
+            
+          }
+          //this.base.eliminarDato(marker.idUsuario);
           
           // code to navigate using google maps app
           //window.open('https://www.google.com/maps/dir/?api=1&destination=' + marker.latitude + ',' + marker.longitude);

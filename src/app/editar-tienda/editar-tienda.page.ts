@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from '../service/base.service';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-editar-tienda',
@@ -8,7 +10,7 @@ import { BaseService } from '../service/base.service';
 })
 export class EditarTiendaPage implements OnInit {
 
-  constructor(private base: BaseService) { }
+  constructor(private base: BaseService, private router: Router, public alertController: AlertController) { }
   markers: any;
   lista: listado[] = [
     {
@@ -62,14 +64,33 @@ export class EditarTiendaPage implements OnInit {
       
 
     }
+    if(nameTienda.value!="" && descripcionEdit.value!="" && precioEdit.value!=""){
+      console.log("nombre:"+nameTienda.value)
+      const alert = await this.alertController.create({
+        header: 'Correcto',
+        message: 'Se actualizo correctamente',
+        buttons: ['OK']
+      });
+      await alert.present();
+      this.base.actualizarDatos(this.markers)
+      this.router.navigate(['admin']);
 
+    }else{
+      const alert = await this.alertController.create({
+        header: 'ERROR',
+        message: 'Verifique campos de editar',
+        buttons: ['OK']
+      });
+
+      await alert.present();
+    }
  
 
  
 
 
 
-    this.base.actualizarDatos(this.markers);
+    //this.base.actualizarDatos(this.markers);
 
   }
   nombreTienda(){

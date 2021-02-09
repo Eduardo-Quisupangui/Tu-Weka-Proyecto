@@ -12,7 +12,7 @@ const routes: Routes = [
 */
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate:[AuthGuard]
   },  
   {
     path: 'splash',
@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)//,canActivate:[AuthGuard]
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -40,18 +40,19 @@ const routes: Routes = [
   },
   {
     path: 'reg-tienda',
-    loadChildren: () => import('./reg-tienda/reg-tienda.module').then( m => m.RegTiendaPageModule)//,canActivate:[AuthGuard]
+    loadChildren: () => import('./reg-tienda/reg-tienda.module').then( m => m.RegTiendaPageModule),canActivate:[AuthGuard]
   },
   {
     path: 'anuncios',
-    loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule)//,canActivate:[AuthGuard]
-  },  {
+    loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule),canActivate:[AuthGuard]
+  },
+  {
     path: 'editar-tienda',
-    loadChildren: () => import('./editar-tienda/editar-tienda.module').then( m => m.EditarTiendaPageModule)
+    loadChildren: () => import('./editar-tienda/editar-tienda.module').then( m => m.EditarTiendaPageModule),canActivate:[AuthGuard]
   },
   {
     path: 'borrar-tienda',
-    loadChildren: () => import('./borrar-tienda/borrar-tienda.module').then( m => m.BorrarTiendaPageModule)
+    loadChildren: () => import('./borrar-tienda/borrar-tienda.module').then( m => m.BorrarTiendaPageModule),canActivate:[AuthGuard]
   },
 
 
