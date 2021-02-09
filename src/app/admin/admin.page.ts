@@ -235,8 +235,8 @@ autoCompletar(marcador,consultaGoogle)
   addInfoWindowToMarker(marker) {
     let infoWindowContent = '<div id="content">' +
       '<h2 id="firstHeading" class"firstHeading">' + marker.title + '</h2>' +
-      '<p> ' + marker.latitude + '</p>' +
-      '<p>Precio: ' + marker.longitude + '</p>' +
+      '<p> ' + marker.descripcion + '</p>' +
+      '<p>Precio: ' + marker.precio + '</p>' +
       '</div>';
 
     let infoWindow = new google.maps.InfoWindow({
