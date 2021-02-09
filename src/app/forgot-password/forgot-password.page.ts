@@ -19,6 +19,13 @@ export class ForgotPasswordPage implements OnInit {
     try {
       await this.authSvc.resetPassword(email.value);
       this.router.navigate(['/login']);
+      const alert = await this.alertController.create({
+        header: 'Correcto',
+        message: 'Verifique su correo',
+        buttons: ['OK']
+      });
+
+      await alert.present();
     } catch (error) {
       const alert = await this.alertController.create({
         header: 'ERROR',
